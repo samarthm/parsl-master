@@ -40,9 +40,8 @@ for hello in range(1,4):
             x[i] = increment(i)
         end = time.time()
         print("Launched {0} tasks in {1} s".format(count, end - start))
-        times.append(end-start)
         dfk.cleanup()
-        return(end-start)
+        return((end-start)/1000)
 
     if __name__ == '__main__':
 
@@ -58,5 +57,8 @@ for hello in range(1,4):
 
         times.append(test_stress(count=int(args.count)))
 import matplotlib.pyplot as plt
-plt.plot([1,1,2,2,3,3], times)
+plt.plot([1,2,3], times)
+plt.xlabel("initBlocks")
+plt.ylabel("Time (seconds)")
+plt.title("Number of initBlocks on Time")
 plt.show()
