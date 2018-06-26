@@ -1,0 +1,16 @@
+{
+  "ssh": "",
+  "interface": "tcp://*",
+  "registration": 52843,
+  "control": 52845,
+  "mux": 52847,
+  "hb_ping": 52848,
+  "hb_pong": 52849,
+  "task": 52851,
+  "iopub": 52853,
+  "key": "796205ae-2e9586d917446a5419e56d14",
+  "location": "sillygoose.local",
+  "pack": "json",
+  "unpack": "json",
+  "signature_scheme": "hmac-sha256"
+}

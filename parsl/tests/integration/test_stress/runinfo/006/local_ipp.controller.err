@@ -1,0 +1,20 @@
+2018-06-26 10:36:59.044 [IPControllerApp] Created profile dir: '/Users/samarthmadduru/Downloads/parsl-master/parsl/tests/integration/test_stress/runinfo/006/profile_local_ipp'
+2018-06-26 10:36:59.062 [IPControllerApp] Hub listening on tcp://*:52918 for registration.
+2018-06-26 10:36:59.065 [IPControllerApp] Hub using DB backend: 'DictDB'
+2018-06-26 10:36:59.345 [IPControllerApp] hub::created hub
+2018-06-26 10:36:59.345 [IPControllerApp] writing connection info to /Users/samarthmadduru/Downloads/parsl-master/parsl/tests/integration/test_stress/runinfo/006/profile_local_ipp/security/ipcontroller-client.json
+2018-06-26 10:36:59.346 [IPControllerApp] writing connection info to /Users/samarthmadduru/Downloads/parsl-master/parsl/tests/integration/test_stress/runinfo/006/profile_local_ipp/security/ipcontroller-engine.json
+2018-06-26 10:36:59.347 [IPControllerApp] task::using Python leastload Task scheduler
+2018-06-26 10:36:59.347 [IPControllerApp] Heartmonitor started
+2018-06-26 10:36:59.361 [IPControllerApp] Creating pid file: /Users/samarthmadduru/Downloads/parsl-master/parsl/tests/integration/test_stress/runinfo/006/profile_local_ipp/pid/ipcontroller.pid
+2018-06-26 10:36:59.375 [scheduler] Scheduler started [leastload]
+2018-06-26 10:36:59.379 [IPControllerApp] client::client b'\x00\x80\x00A\xa7' requested 'connection_request'
+2018-06-26 10:36:59.379 [IPControllerApp] client::client [b'\x00\x80\x00A\xa7'] connected
+2018-06-26 10:36:59.474 [IPControllerApp] client::client b'\x00\x80\x00A\xa8' requested 'connection_request'
+2018-06-26 10:36:59.474 [IPControllerApp] client::client [b'\x00\x80\x00A\xa8'] connected
+2018-06-26 10:37:01.369 [IPControllerApp] client::client b'2c274adb-fcaa7fc28b7f02e1adf1cd4c' requested 'registration_request'
+2018-06-26 10:37:01.373 [IPControllerApp] client::client b'fe56175b-f94ae1fb3c4a999349854a09' requested 'registration_request'
+2018-06-26 10:37:05.351 [IPControllerApp] registration::finished registering engine 1:fe56175b-f94ae1fb3c4a999349854a09
+2018-06-26 10:37:05.352 [IPControllerApp] engine::Engine Connected: 1
+2018-06-26 10:37:05.354 [IPControllerApp] registration::finished registering engine 0:2c274adb-fcaa7fc28b7f02e1adf1cd4c
+2018-06-26 10:37:05.356 [IPControllerApp] engine::Engine Connected: 0

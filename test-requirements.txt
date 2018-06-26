@@ -1,0 +1,9 @@
+flake8
+ipyparallel
+nose
+pytest
+pytest-xdist
+pytest-ordering
+coverage
+mock>=1.0.0
+pandas

@@ -1,0 +1,16 @@
+{
+  "ssh": "",
+  "interface": "tcp://*",
+  "registration": 52740,
+  "control": 52741,
+  "mux": 52743,
+  "task": 52747,
+  "task_scheme": "leastload",
+  "iopub": 52749,
+  "notification": 52751,
+  "key": "be3c120f-f6b507417d5069f9070f23dd",
+  "location": "sillygoose.local",
+  "pack": "json",
+  "unpack": "json",
+  "signature_scheme": "hmac-sha256"
+}

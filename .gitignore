@@ -1,0 +1,10 @@
+*~
+*.pyc
+build/*
+dist/*
+parsl.egg-info/*
+.scripts
+.*out
+.*err
+*log
+.ipynb_checkpoints

@@ -1,0 +1,3 @@
+[submodule "parsl/libsubmit"]
+	path = parsl/libsubmit
+	url = https://github.com/Parsl/libsubmit

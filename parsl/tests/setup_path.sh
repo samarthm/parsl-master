@@ -1,0 +1,4 @@
+export PATH=$PWD:$PATH
+PARSL=$PWD/../../
+LIBSUBMIT=$PWD/../../../libsubmit
+export PYTHONPATH=$PARSL:$LIBSUBMIT:$PYTHONPATH
