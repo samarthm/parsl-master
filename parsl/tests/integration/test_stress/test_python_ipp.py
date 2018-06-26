@@ -6,13 +6,14 @@ from parsl.tests.utils import get_rundir
 from parsl.tests.user_opts import user_opts
 import itertools
 import time
+times = []
 
 if 'midway' in user_opts:
     info = user_opts['midway']
 else:
     pytest.skip('midway user_opts not configured {}'.format(str(user_opts)), allow_module_level=True)
-    
-for i in itertools.count():
+
+for hello in range(1,1000):
     config = {
         "sites": [
             {
@@ -30,7 +31,7 @@ for i in itertools.count():
                         "nodes": 1,
                         "minBlocks": 1,
                         "maxBlocks": 2,
-                        "initBlocks": i,
+                        "initBlocks": hello,
                         "taskBlocks": 4,
                         "parallelism": 0.5,
                         "options": info['options']
@@ -60,7 +61,7 @@ for i in itertools.count():
         end = time.time()
         print("Launched {0} tasks in {1} s".format(count, end - start))
         dfk.cleanup()
-
+        return((end-start)/1000)
 
     if __name__ == '__main__':
 
@@ -75,3 +76,13 @@ for i in itertools.count():
             parsl.set_stream_logger()
 
         test_stress(count=int(args.count))
+        times.append(test_stress(count=int(args.count)))
+
+import matplotlib.pyplot as plt
+myList = range(999)
+myList = [x+1 for x in mylist]
+plt.plot(myList, times)
+plt.xlabel("initBlocks")
+plt.ylabel("Time (seconds)")
+plt.title("Number of initBlocks on Time")
+plt.show()
