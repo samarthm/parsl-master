@@ -41,7 +41,7 @@ for hello in range(1,1000):
         ],
         "globals": {
             "lazyErrors": True,
-            "runDir": get_rundir()
+            "runDir": 'runinfo_{}'.format(get_tag(n))
         }
     }
     dfk = DataFlowKernel(config=config)
