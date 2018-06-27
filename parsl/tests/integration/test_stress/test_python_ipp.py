@@ -3,14 +3,13 @@
 from parsl import *
 import pytest
 from utils import *
-from user_opts import user_opts
 import itertools
 import time
 times = []
-from libsubmit.channels.ssh.ssh import SSHChannel
-from libsubmit.providers.slurm.slurm import Slurm
-from config import Config
-from ipp import IPyParallelExecutor
+from ssh import *
+from libsubmit.providers.slurm.slurm import *
+from config import *
+from ipp import *
     
 
 for init_block_var in range(1,1000):
