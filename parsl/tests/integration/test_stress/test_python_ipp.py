@@ -2,18 +2,14 @@
 '''
 from parsl import *
 import pytest
-from utils import get_rundir
+from utils import *
 from user_opts import user_opts
 import itertools
 import time
 times = []
 
-if 'midway' in user_opts:
-    info = user_opts['midway']
-else:
-    pytest.skip('midway user_opts not configured {}'.format(str(user_opts)), allow_module_level=True)
 
-for hello in range(1,1000):
+for init_block_var in range(1,1000):
     config = {
         "sites": [
             {
@@ -25,17 +21,20 @@ for hello in range(1,1000):
                         "nodes": 1,
                         "minBlocks": 1,
                         "maxBlocks": 2,
-                        "initBlocks": hello,
+                        "initBlocks": init_block_var,
                         "taskBlocks": 4,
                         "parallelism": 0.5,
-                        "options": info['options']
+                        "options": 'options': {
+                            'partition': 'westmere',
+                            'overrides': 'module load Anaconda3/5.1.0; export PARSL_TESTING=True'
+                        }
                     }
                 }
             }
         ],
         "globals": {
             "lazyErrors": True,
-            "runDir": 'runinfo_{}'.format(get_tag(n))
+            "runDir": '/home/madduru/scratch-midway2/parsl-master/parsl/tests/integration/test_stress'
         }
     }
     dfk = DataFlowKernel(config=config)
@@ -72,8 +71,8 @@ for hello in range(1,1000):
         test_stress(count=int(args.count))
         times.append(test_stress(count=int(args.count)))
 
-    if (hello % 50) and (hello is not 0):
-        thefile = open('initBlocks' + hello + '.txt', 'w')
+    if (init_block_var % 50) and (init_block_var is not 0):
+        thefile = open('initBlocks' + init_block_var + '.txt', 'w')
         for item in times:
             thefile.write("%s\n" % item)
 
