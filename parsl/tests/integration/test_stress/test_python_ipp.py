@@ -7,7 +7,7 @@ import itertools
 import time
 times = []
 from ssh import *
-from libsubmit.providers.slurm.slurm import *
+from slurm import *
 from config import *
 from ipp import *
     
