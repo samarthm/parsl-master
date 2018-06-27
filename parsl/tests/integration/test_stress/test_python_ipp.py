@@ -7,39 +7,30 @@ from user_opts import user_opts
 import itertools
 import time
 times = []
-
+from parsl.config import Config
+from parsl.executors.ipp import IPyParallelExecutor
+from libsubmit.channels.ssh.ssh import SSHChannel
+from libsubmit.providers.slurm.slurm import Slurm
+    
 
 for init_block_var in range(1,1000):
-    config = {
-        "sites": [
-            {
-                "site": "midway_ipp",
-                "auth": {
-                    "channel": None
-                },
-                "execution": {
-                    "executor": "ipp",
-                    "provider": "slurm",
-                    "block": {
-                        "nodes": 1,
-                        "minBlocks": 1,
-                        "maxBlocks": 2,
-                        "initBlocks": init_block_var,
-                        "taskBlocks": 4,
-                        "parallelism": 0.5,
-                        "options": {
-                            'partition': 'westmere',
-                            'overrides': 'module load Anaconda3/5.1.0; export PARSL_TESTING=True'
-                        }
-                    }
-                }
-            }
-        ],
-        "globals": {
-            "lazyErrors": True,
-            "runDir": '/home/madduru/scratch-midway2/parsl-master/parsl/tests/integration/test_stress'
-        }
-    }
+    config = Config(
+        executors=[
+            IPyParallelExecutor(
+                provider=Slurm(
+                    'westmere',
+                    init_blocks=init_blocks_var,
+                    min_blocks=1,
+                    max_blocks=init_blocks_var,
+                    nodes_per_block=1,
+                    tasks_per_node=4,
+                    parallelism=0.5,
+                    overrides='module load Anaconda3/5.1.0; export PARSL_TESTING=True'
+                ),
+                label='midway_ipp'
+            )
+        ]
+    )
     dfk = DataFlowKernel(config=config)
 
 
