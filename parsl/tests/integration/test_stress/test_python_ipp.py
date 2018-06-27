@@ -14,12 +14,6 @@ for init_block_var in range(1,1000):
         "sites": [
             {
                 "site": "midway_ipp",
-                "auth": {
-                    "channel": "ssh",
-                    "hostname": "swift.rcc.uchicago.edu",
-                    "username": "madduru",
-                    "scriptDir": "/home/madduru/scratch-midway2/parsl-master/parsl/tests/integration/test_stress"
-                },
                 "execution": {
                     "executor": "ipp",
                     "provider": "slurm",
