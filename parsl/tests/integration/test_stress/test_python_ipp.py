@@ -14,6 +14,12 @@ for init_block_var in range(1,1000):
         "sites": [
             {
                 "site": "midway_ipp",
+                "auth": {
+                    "channel": "ssh",
+                    "hostname": "swift.rcc.uchicago.edu",
+                    "username": "madduru",
+                    "scriptDir": "/home/madduru/scratch-midway2/parsl-master/parsl/tests/integration/test_stress"
+                },
                 "execution": {
                     "executor": "ipp",
                     "provider": "slurm",
@@ -24,7 +30,7 @@ for init_block_var in range(1,1000):
                         "initBlocks": init_block_var,
                         "taskBlocks": 4,
                         "parallelism": 0.5,
-                        "options": 'options': {
+                        "options": {
                             'partition': 'westmere',
                             'overrides': 'module load Anaconda3/5.1.0; export PARSL_TESTING=True'
                         }
