@@ -14,6 +14,9 @@ for init_block_var in range(1,1000):
         "sites": [
             {
                 "site": "midway_ipp",
+                "auth": {
+                    "channel": None
+                },
                 "execution": {
                     "executor": "ipp",
                     "provider": "slurm",
