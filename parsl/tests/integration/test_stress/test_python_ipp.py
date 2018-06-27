@@ -7,10 +7,10 @@ from user_opts import user_opts
 import itertools
 import time
 times = []
-from parsl.config import Config
-from parsl.executors.ipp import IPyParallelExecutor
 from libsubmit.channels.ssh.ssh import SSHChannel
 from libsubmit.providers.slurm.slurm import Slurm
+from config import Config
+from ipp import IPyParallelExecutor
     
 
 for init_block_var in range(1,1000):
