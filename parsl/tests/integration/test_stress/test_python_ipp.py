@@ -18,12 +18,6 @@ for hello in range(1,1000):
         "sites": [
             {
                 "site": "midway_ipp",
-                "auth": {
-                    "channel": "ssh",
-                    "hostname": "swift.rcc.uchicago.edu",
-                    "username": info['username'],
-                    "scriptDir": info['script_dir']
-                },
                 "execution": {
                     "executor": "ipp",
                     "provider": "slurm",
@@ -77,6 +71,11 @@ for hello in range(1,1000):
 
         test_stress(count=int(args.count))
         times.append(test_stress(count=int(args.count)))
+
+    if (hello % 50) and (hello is not 0):
+        thefile = open('initBlocks' + hello + '.txt', 'w')
+        for item in times:
+            thefile.write("%s\n" % item)
 
 import matplotlib.pyplot as plt
 myList = range(999)
