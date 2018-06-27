@@ -2,8 +2,8 @@
 '''
 from parsl import *
 import pytest
-from parsl.tests.utils import get_rundir
-from parsl.tests.user_opts import user_opts
+from utils import get_rundir
+from user_opts import user_opts
 import itertools
 import time
 times = []
